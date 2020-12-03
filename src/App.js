@@ -22,13 +22,11 @@ class App extends Component {
 
         return (
             <div>
-                {this.cars.map((value, index) => {
-                        let carName='nameStyle';
-                        let carLook='lookStyle';
-                        let carTechNum='techNumStyle';
-                        let carStyle='cStyle'
-                        return (<CarComponent car={value} key={index} carStyle={carStyle} carName={carName}
-                                              carLook={carLook} carTechNum={carTechNum}/>)
+                {
+                    this.cars.map((value, index) => {
+
+                        return (<CarComponent car={value} key={index} carStyle='cStyle' carName='nameStyle'
+                                              carLook='lookStyle' carTechNum='techNumStyle'/>)
                     }
                 )
                 }

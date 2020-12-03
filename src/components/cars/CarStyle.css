@@ -1,6 +1,7 @@
 .cStyle{
     border: 2px solid cornflowerblue;
     border-radius: 5%;
+    width: 300px ;
 }
 .nameStyle {
     background-color: aquamarine;
