@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PostComponent from "../post/PostComponent";
 
+import './PostsStyle.css'
+
 class AllPostsComponent extends Component {
 
     state={posts:[],classState:'show'}
@@ -30,12 +32,20 @@ class AllPostsComponent extends Component {
         let {posts, classState} = this.state
 
         return (
-            <div>
-                <h1 onClick={this.hidePost}> Post </h1>
-                {
-                    posts.map(value => (<PostComponent item={value} postHide={classState} key={value.id}/>))
-                }
+            <div className={'all'}>
+                <h1 className={'border'} onClick={this.hidePost}> Posts </h1>
 
+                <p>
+                    {
+                    posts.map((value, index) => (
+                        <PostComponent item={value}
+                                       index={index}
+                                       postHide={classState}
+                                       postCard={classState}
+                                       key={value.id}/>)
+                    )
+                }
+                </p>
             </div>
         );
     }
