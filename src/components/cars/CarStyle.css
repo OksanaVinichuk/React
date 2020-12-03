@@ -1,0 +1,16 @@
+.cStyle{
+    border: 2px solid cornflowerblue;
+    border-radius: 5%;
+}
+.nameStyle {
+    background-color: aquamarine;
+}
+
+.lookStyle {
+    color: green;
+    font-weight: inherit;
+
+}
+.techNumStyle {
+    font-weight: inherit;
+}
