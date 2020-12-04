@@ -1,0 +1,16 @@
+.columns{
+    display: flex;
+    width: 100%;
+}
+.mensColumn{
+    position: relative;
+    width: 30%;
+}
+.womensColumn{
+    position: relative;
+    width: 30%;
+}
+.marrigeColumn{
+    position: relative;
+    width: 40%;
+}
