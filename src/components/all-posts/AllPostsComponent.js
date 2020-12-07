@@ -2,20 +2,16 @@ import React, {Component} from 'react';
 import PostComponent from "../post/PostComponent";
 
 import './PostsStyle.css'
+import {AllPostServices} from "../../services/AllPostServices";
 
 class AllPostsComponent extends Component {
 
+    postService = new AllPostServices()
     state={posts:[],classState:'show'}
-    flag=false
+    flag=false;
 
-    componentDidMount()
-        {
-            fetch('https://jsonplaceholder.typicode.com/posts')
-                .then((value) => value.json())
-                .then(postsFromAPI=>{this.setState(
-                    {posts: postsFromAPI}
-                )}
-                )
+    componentDidMount()  {
+        this.postService.getAllPosts().then( value =>  this.setState({posts:value}))
 
         }
     hidePost = () => {
@@ -35,7 +31,7 @@ class AllPostsComponent extends Component {
             <div className={'all'}>
                 <h1 className={'border'} onClick={this.hidePost}> Posts </h1>
 
-                <p>
+                <p >
                     {
                     posts.map((value, index) => (
                         <PostComponent item={value}
