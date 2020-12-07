@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import AllUsers from "./components/all-users/all-users";
+import AllPosts from "./components/all-posts/AllPosts";
 
 class App extends Component {
     render() {
         return (
             <div>
-              <AllUsers/>
-
+                <AllPosts/>
             </div>
         );
     }
