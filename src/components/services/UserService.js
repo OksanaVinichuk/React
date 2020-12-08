@@ -1,7 +1,8 @@
 export class UserService{
     url = "https://jsonplaceholder.typicode.com/users"
-    async getAllUsers(){
-        await fetch (this.url)
+
+    getAllUsers(){
+        return fetch (this.url)
             .then(value=> value.json())
     }
 }

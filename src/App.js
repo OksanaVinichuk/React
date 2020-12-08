@@ -21,8 +21,9 @@ class App extends Component {
                 <div>
                     <Link to={"/posts"}>    posts    </Link>
                 </div>
+                <hr/>
                 <Switch>
-                    <Route path={"/users"}  component={AllUsers}/>
+                    <Route path={"/users"}  render={()=>{return <AllUsers/>}}/>
                     <Route path={"/posts"}  component={AllPosts}/>
                 </Switch>
 

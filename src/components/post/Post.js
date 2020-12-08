@@ -7,7 +7,7 @@ class Post extends Component {
         let {item}=this.props
         return (
             <div>
-                {item.id}-{item.title}
+                {item.id}
             </div>
         );
     }
