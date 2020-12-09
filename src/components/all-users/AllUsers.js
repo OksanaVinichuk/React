@@ -7,8 +7,7 @@ class AllUsers extends Component {
     userService = new UserService()
 
     async componentDidMount() {
-        let users = await this.userService.getAllUsers()
-        this.setState({users})
+        await this.setState({users:  this.userService.getAllUsers() })
     }
 
     render() {
@@ -16,7 +15,7 @@ class AllUsers extends Component {
         return (
             <div>
                 {users.map(value =>  <User item={value} key={value.id} />  )}
-                    
+
 
 
 
