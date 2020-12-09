@@ -11,7 +11,6 @@ class AllUsers extends Component {
         let users = await this.userService.getAllUsers()
         this.setState({users})
     }
-
     render() {
         let {users} = this.state
         return (

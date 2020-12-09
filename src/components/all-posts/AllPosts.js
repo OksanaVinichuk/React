@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {PostService} from "../services/PostService";
 import Post from "../post/Post";
 import './AllPostsStyle.css'
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, withRouter} from "react-router-dom";
 
 class AllPosts extends Component {
     state = {posts: []}
@@ -12,7 +12,6 @@ class AllPosts extends Component {
         let posts = await this.postService.getAllPosts()
         this.setState({posts})
     }
-
     render() {
         let {posts} = this.state
         return (
@@ -21,9 +20,9 @@ class AllPosts extends Component {
 
                 <div className={'nest'}>
                     <Switch>
-                        <Route path={'/post/'} render={(props) => {
-                            console.log(props);
-                            return 'fbhsakjgdf';
+                        <Route path={'/posts/'} render={(props) => {
+                            console.log(props)
+                            return 'post'
                         }}/>
                     </Switch>
                 </div>
@@ -32,4 +31,4 @@ class AllPosts extends Component {
     }
 }
 
-export default AllPosts;
+export default withRouter(AllPosts);

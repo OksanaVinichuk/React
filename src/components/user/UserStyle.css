@@ -1,0 +1,13 @@
+.fon{
+    background-color: lightseagreen;
+    width: 300px;
+}
+.userStyle{
+    display: flex;
+    justify-content: space-between;
+    color: snow;
+    font-weight: inherit;
+}
+.btn {
+    color: darkred;
+}
