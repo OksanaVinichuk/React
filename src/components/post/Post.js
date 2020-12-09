@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
+import {Link, withRouter} from "react-router-dom";
 
 class Post extends Component {
 
-
     render() {
-        let {item}=this.props
+        let {match:{url},item}=this.props
+        console.log(url)
         return (
             <div>
-                {item.id}
+                <p>{item.id} - {item.title} </p>
+                <p>body: {item.body}</p>
+                <p><Link to={`${url}/ ${item.id}`}> <button> info </button></Link> </p>
             </div>
         );
     }
 }
 
-export default Post;
+export default withRouter(Post);

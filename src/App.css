@@ -1,0 +1,11 @@
+.colons{
+    display: flex;
+    margin: 10px;
+    justify-content: space-around;
+}
+.left {
+    background-color: yellow;
+}
+.right {
+    background-color: green;
+}

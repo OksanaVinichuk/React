@@ -1,24 +1,22 @@
 import React, {Component} from 'react';
 import {UserService} from "../services/UserService";
 import User from "../user/User";
+import './AllUsersStyle.css'
 
 class AllUsers extends Component {
     state = {users: []}
     userService = new UserService()
 
     async componentDidMount() {
-        await this.setState({users:  this.userService.getAllUsers() })
+        let users = await this.userService.getAllUsers()
+        this.setState({users})
     }
 
     render() {
         let {users} = this.state
         return (
             <div>
-                {users.map(value =>  <User item={value} key={value.id} />  )}
-
-
-
-
+                {users.map(value =>  <User item={value} key={value.id} /> )}
             </div>
         )
     }
