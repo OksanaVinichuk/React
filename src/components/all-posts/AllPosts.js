@@ -21,7 +21,7 @@ class AllPosts extends Component {
 
                 <div className={'nest'}>
                     <Switch>
-                        <Route path={'/post/:id'} render={(props) => {
+                        <Route path={'/post/'} render={(props) => {
                             console.log(props);
                             return 'fbhsakjgdf';
                         }}/>
