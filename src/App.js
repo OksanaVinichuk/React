@@ -18,11 +18,11 @@ class App extends Component {
             <Router>
                 <div>
                     <div>
-                        <ul>
+                        <ol>
                             <li><Link to={"/users"}> users </Link></li>
                             <li> <Link to={"/posts"}> posts </Link></li>
                             <li> <Link to={"/comments"}> comments </Link></li>
-                        </ul>
+                        </ol>
                     </div>
                     <hr/>
                     <div>

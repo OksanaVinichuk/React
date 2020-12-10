@@ -13,16 +13,16 @@ class AllPosts extends Component {
         this.setState({posts})
     }
     render() {
-        let {post}=this.props
-        let {posts, match:{url}} = this.state
+        let {match:{url}}=this.props
+        let {posts} = this.state
         return (
             <div>
                 {posts.map(value => <Post item={value} key={value.id}/>)}
 
-                <div className={'nest'}>
+                <div>
                     <Switch>
                         <Route path={url+'/:id'} render={(props) => {
-                            let {match:{param:{id}}}=this.props
+                            let {match:{param:{id}}}=props
                              return <FullPost id={id} key={id}/>
                         }}/>
                     </Switch>

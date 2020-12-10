@@ -4,17 +4,20 @@ import {UserService} from "../services/UserService";
 class FullUser extends Component {
     state = {user:null}
     userService = new UserService()
+
     async componentDidMount() {
-        // await this.userService.user(id)
-        let {id}=this.props
-        console.log (id)
-            }
+        let {match:{params:{id}}}=this.props
+        let user = await this.userService.user(id)
+                this.setState({user})
+        }
 
     render() {
-        let {item}=this.props
+        let {user}=this.state
         return (
             <div>
-                {item.id}-{item.name}-{item.username}-{item.email}
+                {user &&
+                <div>{ user.id}-{user.name}-{user.username}-{user.email} </div>
+                }
 
             </div>
         );

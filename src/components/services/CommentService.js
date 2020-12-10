@@ -6,7 +6,7 @@ export default class CommentService{
 
  }
 async comment(id){
-        return await fetch(url+`/${id}`).then(value=> value.json)
+        return await fetch(this.url+`/${id}`).then(value=> value.json)
 
 }
 

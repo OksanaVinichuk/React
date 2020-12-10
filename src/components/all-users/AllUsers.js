@@ -9,7 +9,8 @@ class AllUsers extends Component {
     userService = new UserService()
 
     async componentDidMount() {
-        let users = await this.userService.getAllUsers()
+        let {match:{params:{id}}}=this.props
+        let users = await this.userService.user(id)
         this.setState({users})
     }
 
@@ -19,13 +20,10 @@ class AllUsers extends Component {
             <div>
                 {users.map(value => <User item={value} key={value.id}/>)}
                 <Switch>
-                    <Route path={url + '/:id'} render={() => {
-                        let {match:{param:{id}}}=this.props
-                        return <FullUser id={id}/>
-                    }
-
-                    }/>
-
+                    <Route path={url + '/:id'} render={(props) => {
+                        let {match:{param:{id}}}=props
+                        return <FullUser {...props} key={id} />
+                    }}/>
                     }
                 </Switch>
             </div>
