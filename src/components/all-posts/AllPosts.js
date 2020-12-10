@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {PostService} from "../services/PostService";
 import Post from "../post/Post";
-import './AllPostsStyle.css'
+import FullPost from "../full-post/FullPost";
 import {Route, Switch, withRouter} from "react-router-dom";
 
 class AllPosts extends Component {
@@ -13,16 +13,17 @@ class AllPosts extends Component {
         this.setState({posts})
     }
     render() {
-        let {posts} = this.state
+        let {post}=this.props
+        let {posts, match:{url}} = this.state
         return (
             <div>
                 {posts.map(value => <Post item={value} key={value.id}/>)}
 
                 <div className={'nest'}>
                     <Switch>
-                        <Route path={'/posts/'} render={(props) => {
-                            console.log(props)
-                            return 'post'
+                        <Route path={url+'/:id'} render={(props) => {
+                            let {match:{param:{id}}}=this.props
+                             return <FullPost id={id} key={id}/>
                         }}/>
                     </Switch>
                 </div>

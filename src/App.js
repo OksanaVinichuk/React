@@ -9,6 +9,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import AllComments from "./components/all-comments/AllComments";
 
 class App extends Component {
 
@@ -16,24 +17,22 @@ class App extends Component {
         return (
             <Router>
                 <div>
-                    <div className={'colons'}>
-                        <div className={'left'}>
-                            <Link to={"/users"}> users </Link>
-                        </div>
-                        <div className={'right'}>
-                            <Link to={"/posts"}> posts </Link>
-                        </div>
+                    <div>
+                        <ul>
+                            <li><Link to={"/users"}> users </Link></li>
+                            <li> <Link to={"/posts"}> posts </Link></li>
+                            <li> <Link to={"/comments"}> comments </Link></li>
+                        </ul>
                     </div>
                     <hr/>
-                    <div className={'colons'}>
+                    <div>
                         <Switch>
-                            <Route path={"/users"} render={() => {
-                                return <AllUsers/>
-                            }}/>
+                            <Route path={"/users"} render={() => { return <AllUsers/> }}/>
                             <Route path={"/posts"} render={()=> {return <AllPosts/>}}/>
+                            <Route path={"/comments"} render={()=> {return <AllComments/>}}/>
                         </Switch>
                     </div>
-
+                    <hr/>
                 </div>
             </Router>
         );
