@@ -10,7 +10,7 @@ class Post extends Component {
             <div>
                 <p>{item.id} - {item.title} </p>
                 <p>body: {item.body}</p>
-                <p><Link to={`${url}/ ${item.id}`}>
+                <p><Link to={`${url}/${item.id}`}>
                     <button> info </button></Link>
                 </p>
             </div>

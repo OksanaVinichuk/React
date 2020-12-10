@@ -11,7 +11,7 @@ class User extends Component {
                 <div className={'userStyle'}>
                     <p> {item.id} </p>
                     <p>  {item.name} </p>
-                <p><Link to={`${url}/ ${item.id}`}> <button className={'btn'}> info  </button> </Link></p>
+                <p><Link to={`${url}/${item.id}`}> <button className={'btn'}> info  </button> </Link></p>
                 </div>
             </div>
         );
