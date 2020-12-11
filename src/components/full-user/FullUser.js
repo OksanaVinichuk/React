@@ -1,22 +1,23 @@
 import React, {Component} from 'react';
 import {UserService} from "../services/UserService";
+import {withRouter} from "react-router";
 
 class FullUser extends Component {
-    state = {user:null}
+    state = {user: null}
     userService = new UserService()
 
     async componentDidMount() {
-        let {match:{params:{id}}}=this.props
-        let user = await this.userService.user(id)
-                this.setState({user})
-        }
+        const {id} = this.props;
+        const user = await this.userService.user(id)
+        this.setState({user})
+    }
 
     render() {
-        let {user}=this.state
+        let {user} = this.state
         return (
             <div>
                 {user &&
-                <div>{ user.id}-{user.name}-{user.username}-{user.email} </div>
+                <div>{user.id}-{user.name}-{user.username}-{user.email} </div>
                 }
 
             </div>
@@ -24,4 +25,4 @@ class FullUser extends Component {
     }
 }
 
-export default FullUser;
+export default withRouter(FullUser);

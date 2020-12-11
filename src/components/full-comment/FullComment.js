@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import CommentService from "../services/CommentService";
+import {withRouter} from "react-router";
 
 class FullComment extends Component {
     state = {comment: null}
     commentService = new CommentService()
 
     async componentDidMount() {
-        let {match: {params: {id}}} = this.props
-        let comment = await this.commentService.comment(id)
+        const {id} = this.props
+        const comment = await this.commentService.comment(id)
         this.setState({comment})
     }
 
@@ -16,12 +17,14 @@ class FullComment extends Component {
         return (
             <div>
                 {comment && <div>
-                    {comment.id}- {comment.name}
-                    {comment.email}-{comment.body}
-                </div>}
+                    <p> {comment.id} - {comment.name}</p>
+                    <p> e-mail: {comment.email}</p>
+                    <p> {comment.body}</p>
+                           </div>
+                }
             </div>
         );
     }
 }
 
-export default FullComment;
+export default withRouter(FullComment);

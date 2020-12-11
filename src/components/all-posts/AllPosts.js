@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {PostService} from "../services/PostService";
 import Post from "../post/Post";
 import FullPost from "../full-post/FullPost";
-import {Route, Switch, withRouter} from "react-router-dom";
+import {Route, Switch, withRouter} from "react-router";
 
 class AllPosts extends Component {
     state = {posts: []}
@@ -22,7 +22,7 @@ class AllPosts extends Component {
                 <div>
                     <Switch>
                         <Route path={url+'/:id'} render={(props) => {
-                            let {match:{param:{id}}}=props
+                            let {match:{params:{id}}}=props
                              return <FullPost id={id} key={id}/>
                         }}/>
                     </Switch>

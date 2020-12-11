@@ -1,6 +1,6 @@
 export default class CommentService{
-    url = 'https://jsonplaceholder.typicode.com/posts'
- async comments(){
+    url = 'https://jsonplaceholder.typicode.com/comments'
+ async getAllComments(){
         return await fetch(this.url)
             .then(value => value.json())
 

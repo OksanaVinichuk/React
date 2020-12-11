@@ -1,27 +1,29 @@
 import React, {Component} from 'react';
 import {PostService} from "../services/PostService";
+import {withRouter} from "react-router";
 
 class FullPost extends Component {
-    state={post:null}
-    postService=new PostService()
-    async componentDidMount() {
-        // await this.postService.post(id)
-        let {id}=this.props
-        console.log(id)
+    postService = new PostService()
+    state = {post: null}
 
+    async componentDidMount() {
+        const {id} = this.props;
+        const post = await this.postService.post(id)
+        this.setState({post})
     }
 
     render() {
-        let {item}=this.props
-        let {post}=this.state
+        let {post} = this.state
         return (
             <div>
-                {post &&
-                <div>{item.id}-{item.title} - body: {item.body}</div>
+                {post && <div>
+                    <p>{post.id}-{post.title} </p>
+                    <p> body: {post.body}</p>
+                        </div>
                 }
             </div>
         );
     }
 }
 
-export default FullPost;
+export default withRouter(FullPost);
