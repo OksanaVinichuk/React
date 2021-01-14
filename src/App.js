@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import {fetchSomeData} from './services';
+
+fetchSomeData().then(console.log)
 
 function App() {
   return (
